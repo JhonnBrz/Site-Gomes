@@ -467,7 +467,7 @@ em { font-style: normal; }
 
 /* footer */
 .footer { position: relative; padding: var(--sec-y) var(--gutter) 28px; background: var(--ink); overflow: hidden; }
-.footer__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; }
+.footer__grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr) minmax(0, 1fr); gap: 48px; align-items: end; }
 .footer__big {
   font-size: clamp(2rem, 4vw, 3.8rem); font-weight: 800; font-stretch: 75%;
   line-height: 1; text-transform: uppercase; max-width: 12ch;
@@ -479,18 +479,18 @@ em { font-style: normal; }
 .footer__big a .ico { width: .7em; height: .7em; transition: transform .4s var(--ease); }
 .footer__big a:hover .ico { transform: translate(4px, -4px); }
 .footer__info {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 40px;
-  align-content: start; padding-top: 4px;
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px;
+  align-content: end; padding-bottom: 6px;
 }
 .footer__info dt { color: var(--muted-on-ink); margin-bottom: 10px; }
 .footer__info dd { font-size: 16px; overflow-wrap: anywhere; }
 .footer__info dd a { border-bottom: 1px solid var(--ink-line); transition: border-color .3s, color .3s; }
 .footer__info dd a:hover { color: var(--red-hi); border-color: currentColor; }
 .footer__logo {
-  width: min(100%, 560px); height: auto;
-  margin: clamp(80px, 11vw, 168px) 0 clamp(32px, 4vw, 56px);
+  display: block; width: min(100%, 220px); height: auto;
 }
 .footer__bar {
+  margin-top: clamp(48px, 6vw, 88px);
   display: flex; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap;
   padding-top: 20px; border-top: 1px solid var(--ink-line);
   color: var(--muted-on-ink); font-size: 12px;

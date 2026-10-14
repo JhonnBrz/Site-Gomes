@@ -19,7 +19,6 @@ const WHATSAPP_NUMBER = '554332754288';
   $$('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 
   const nav = $('[data-nav]');
-  const fab = $('[data-fab]');
   const hero = $('[data-hero]');
   const cta = $('.cta');
 
@@ -36,9 +35,6 @@ const WHATSAPP_NUMBER = '554332754288';
     const heroBottom = hero.offsetTop + hero.offsetHeight;
     nav.classList.toggle('is-hidden', goingDown && y > heroBottom);
     lastY = y;
-    const heroEnd = hero.offsetTop + hero.offsetHeight - window.innerHeight * 0.9;
-    const ctaStart = cta.offsetTop - window.innerHeight * 0.6;
-    fab.classList.toggle('is-visible', y > heroEnd && y < ctaStart);
   };
 
   if (!hasGsap || reduce) {
