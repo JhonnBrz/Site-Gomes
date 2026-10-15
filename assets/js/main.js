@@ -3,7 +3,7 @@
    ========================================================== */
 
 // Número do WhatsApp no formato internacional, só dígitos (55 + DDD + número).
-const WHATSAPP_NUMBER = '554332754288';
+const WHATSAPP_NUMBER = '5543998130908';
 
 (() => {
   const root = document.documentElement;

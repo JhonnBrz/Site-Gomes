@@ -19,7 +19,7 @@ Todos os botões apontam para o WhatsApp. O número fica em um só lugar, no top
 `assets/js/main.js`:
 
 ```js
-const WHATSAPP_NUMBER = '554332754288';
+const WHATSAPP_NUMBER = '5543998130908';
 ```
 
 Cada botão tem um atributo `data-wa` com a mensagem pronta que abre na conversa.
