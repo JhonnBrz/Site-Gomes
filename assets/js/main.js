@@ -70,6 +70,10 @@ const WHATSAPP_NUMBER = '554332754288';
       e.preventDefault();
       if (lenis) lenis.scrollTo(target, { duration: 1.6 });
       else window.scrollTo({ top: target === 0 ? 0 : target.offsetTop, behavior: 'smooth' });
+      if (target !== 0) {
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+      }
     });
   });
 
@@ -107,7 +111,7 @@ const WHATSAPP_NUMBER = '554332754288';
   const truck = $('[data-hero-truck]');
   const truckImg = $('img', truck);
 
-  gsap.set('[data-hero-spec] > *', { opacity: 0, y: 40 });
+  gsap.set('[data-hero-spec] > *', { autoAlpha: 0, y: 40 });
   gsap.set(truck, { clipPath: 'inset(100% 0% 0% 0%)' });
 
   const seq = gsap.timeline({
@@ -133,14 +137,21 @@ const WHATSAPP_NUMBER = '554332754288';
     .fromTo('[data-hero-bg]', { filter: 'brightness(1) saturate(1)' }, { filter: 'brightness(.55) saturate(.85)', duration: 3 }, 2.2)
     .to(truck, { clipPath: 'inset(0% 0% 0% 0%)', duration: 3, ease: 'power2.inOut' }, 2.6)
     .fromTo(truckImg, { scale: small ? 1 : 1.35 }, { scale: 1, duration: 4, ease: 'power2.out' }, 2.6)
-    .to('[data-hero-spec] > *', { opacity: 1, y: 0, duration: 1.4, stagger: 0.3, ease: 'power2.out' }, 4.3)
+    .to('[data-hero-spec] > *', { autoAlpha: 1, y: 0, duration: 1.4, stagger: 0.3, ease: 'power2.out' }, 4.3)
     .to({}, { duration: 2.2 }); // respiro antes de soltar a seção
 
   /* ---------- manifesto: palavras acendem com a rolagem ---------- */
   const words = $('[data-words]');
   if (words) {
     const text = words.textContent.trim().replace(/\s+/g, ' ');
-    words.innerHTML = text.split(' ').map((w) => `<span class="w">${w}</span>`).join(' ');
+    words.textContent = '';
+    text.split(' ').forEach((w, i) => {
+      if (i) words.append(' ');
+      const span = document.createElement('span');
+      span.className = 'w';
+      span.textContent = w;
+      words.append(span);
+    });
     gsap.fromTo($$('.w', words), { opacity: 0.14 }, {
       opacity: 1, stagger: 0.1, ease: 'none',
       scrollTrigger: { trigger: words, start: 'top 78%', end: 'bottom 42%', scrub: true },
@@ -149,6 +160,10 @@ const WHATSAPP_NUMBER = '554332754288';
 
   /* ---------- revelações ---------- */
   gsap.set('[data-reveal]', { opacity: 0, y: 44 });
+  document.addEventListener('focusin', (e) => {
+    const el = e.target.closest('[data-reveal]');
+    if (el) gsap.to(el, { opacity: 1, y: 0, duration: 0.3, overwrite: true });
+  });
   ScrollTrigger.batch('[data-reveal]', {
     start: 'top 88%',
     once: true,

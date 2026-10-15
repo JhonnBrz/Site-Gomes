@@ -50,3 +50,15 @@ assets/js/vendor/          # gsap 3.12.5, ScrollTrigger, lenis 1.1.13
 assets/fonts/              # Archivo (variável) e JetBrains Mono
 assets/img/                # fotos otimizadas em WebP e logotipos
 ```
+
+## Créditos e licenças
+
+| Item | Autor | Licença |
+|---|---|---|
+| GSAP 3.12.5 e ScrollTrigger (`assets/js/vendor/`) | GreenSock — https://gsap.com | GSAP Standard License — https://gsap.com/standard-license |
+| Lenis 1.1.13 (`assets/js/vendor/lenis.min.js`) | darkroom.engineering — https://github.com/darkroomengineering/lenis | MIT |
+| Fonte Archivo (`assets/fonts/archivo-*`) | Omnibus-Type | SIL Open Font License 1.1 — https://openfontlicense.org |
+| Fonte JetBrains Mono (`assets/fonts/jetbrains-mono-*`) | JetBrains | SIL Open Font License 1.1 — https://openfontlicense.org |
+| Fotos da frota (`frota-*.webp`) e logotipo (`logo-*`, ícones) | Fornecidos pelo cliente (logotipo gerado no Higgsfield AI) | **A confirmar** |
+| Fotos do topo (`crane-boom*`, `crane-truck*`, `og.jpg`) | Origem desconhecida (vieram do projeto anterior) | **A confirmar** |
+| Símbolo Internacional de Acesso (rodapé) | Desenhado no próprio código (Lei 7.405/1985) | — |
